@@ -1,5 +1,5 @@
 <script>
-    import AddUser from '../components/AddUser.svelte'
+	import GameScore from '../components/GameScore.svelte';
 	import UserTable from '../components/UserTable.svelte';
 
 </script>
@@ -8,5 +8,6 @@
 <div>
     <!--<AddUser /> -->
     <UserTable />
+    <GameScore />
 </div>
 

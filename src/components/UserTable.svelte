@@ -1,5 +1,4 @@
 <script>
-	import { validate_each_argument } from "svelte/internal";
     import { players } from "../stores/stores";
 
     let columns = ["Namn", "Kniv", "Poäng"]
