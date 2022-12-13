@@ -1,30 +1,28 @@
 <script>
 	import { validate_each_argument } from "svelte/internal";
+    import { players } from "../stores/stores";
 
     let columns = ["Namn", "Kniv", "Poäng"]
-    let data = [
-        ["William", 0, 0]
-    ]
-    let data2 = new Map();
     let newUser;
-    
     function addRow(newUser){
-        data2 = data2.set(
+        
+        players.set(
             newUser,
             {
                 knife: 0,
                 score: 0,
             }
         )
-        console.dir(data2)
+        players = players;
+        console.dir(players)
     }
 
     function deleteRow(removeUser){
 
-        if(data2.delete(removeUser) === true){
-            data2 = data2;
+        if(players.delete(removeUser) === true){
+            players = players;
         }
-        console.dir(data2)
+        console.dir(players)
     }
 
 </script>
@@ -37,7 +35,7 @@
             {/each}
         </tr>
     
-        {#each [...data2] as [key, value]}
+        {#each [...players] as [key, value]}
         <tr>
             <td contenteditable="false" bind:innerHTML={key} />
             <td contenteditable="false" bind:innerHTML={value.knife} />
